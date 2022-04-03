@@ -5,7 +5,9 @@
   "main": "./prod/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node -r dotenv/config ./prod/index.js"
+    "start": "node -r dotenv/config ./prod/index.js",
+    "watch-node": "nodemon -r dotenv/config ./prod/index.js",
+    "watch-ts": "tsc -w"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,7 @@
 import { CommandInterface } from "../interfaces/Command";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageEmbed } from "discord.js";
+import { setChannelData } from "../modules/setChannelData";
 
 const axios = require('axios');
 
@@ -12,18 +13,16 @@ export const puzzle: CommandInterface = {
   run: async (interaction) => {
     await interaction.deferReply();
     const response = await axios('https://lichess.org/api/puzzle/daily');
-
+    
+    const xd = await setChannelData(interaction.channelId)
+    console.log(xd);
+    
     const dailyPuzzleData = response.data;
     const dailyPuzzleUrl = `https://lichess.org/training/${dailyPuzzleData.puzzle.id}`;
     const dailyPuzzleImgUrl = `https://lichess1.org/training/export/gif/thumbnail/${dailyPuzzleData.puzzle.id}.gif`;
     const gameTimeControlAndType = `From game ${dailyPuzzleData.game.clock} • ${dailyPuzzleData.game.perf.name}`;
     const blackPlayerInfo = dailyPuzzleData.game.players[0].name;
     const whitePlayerInfo = dailyPuzzleData.game.players[1].name;
-    // const descriptionBody = [
-    //   gameTimeControlAndType,
-    //   blackPlayerInfo,
-    //   whitePlayerInfo
-    // ].join('\n');
     const footerText = `Current Puzzle Rating: ${dailyPuzzleData.puzzle.rating}`;
 
     const dailyPuzzleEmbed = new MessageEmbed()
