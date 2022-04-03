@@ -7,8 +7,10 @@ const axios = require('axios');
 export const puzzle: CommandInterface = {
   data: new SlashCommandBuilder()
     .setName('puzzle')
-    .setDescription('Posts the daily chess puzzle by Lichess on-demand'),
-
+    .setDescription('Posts the daily chess puzzle by Lichess on-demand')
+    
+  // this comma separates data and run      
+  ,
   run: async (interaction) => {
     await interaction.deferReply();
     const response = await axios('https://lichess.org/api/puzzle/daily');
