@@ -1,6 +1,7 @@
 import { CommandInterface } from "../interfaces/Command";
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { setChannelData } from "../modules/setChannelData";
+import { removeChannelData } from "../modules/removeChannelData";
+import { MessageEmbed, ColorResolvable } from "discord.js";
 
 export const unregister: CommandInterface = {
   data: new SlashCommandBuilder()
@@ -10,8 +11,24 @@ export const unregister: CommandInterface = {
   run: async (interaction) => {
 
     await interaction.deferReply();
-    const xd = await setChannelData(interaction.channelId);
+    const result = await removeChannelData(interaction.channelId);
 
-    interaction.editReply('xd')
+    let description = 'Successfully unregisterd, this channel will no longer receive daily chess puzzles';
+    let embedColor = '#0099ff';
+    let status = 'Success';
+
+    if (result === null) {
+      description = 'Failed to unregister, there is nothing to unregister';
+      embedColor = '#ff0000';
+      status = 'Failed'
+    }
+
+    const replyEmbed = new MessageEmbed()
+      .setColor(embedColor as ColorResolvable)
+      .setTitle(`Status: ${status}`)
+      .setDescription(description)
+      .setTimestamp()
+
+    interaction.editReply( {embeds: [replyEmbed]} )
   } 
 };

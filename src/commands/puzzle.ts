@@ -1,7 +1,6 @@
 import { CommandInterface } from "../interfaces/Command";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageEmbed } from "discord.js";
-import { setChannelData } from "../modules/setChannelData";
 
 const axios = require('axios');
 
@@ -13,9 +12,6 @@ export const puzzle: CommandInterface = {
   run: async (interaction) => {
     await interaction.deferReply();
     const response = await axios('https://lichess.org/api/puzzle/daily');
-    
-    const xd = await setChannelData(interaction.channelId)
-    console.log(xd);
     
     const dailyPuzzleData = response.data;
     const dailyPuzzleUrl = `https://lichess.org/training/${dailyPuzzleData.puzzle.id}`;

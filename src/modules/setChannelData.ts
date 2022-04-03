@@ -2,27 +2,30 @@ import GuildModel, { GuildInterface } from "../database/models/GuildModel";
 
 export const setChannelData = async (
   channelId: string,
-  utcTime?: string 
-): Promise<GuildInterface | undefined> => {
+  utcHour: number,
+  utcMinute: number
+): Promise<GuildInterface | undefined | null> => {
   try {
     const filter = { channelId: channelId }
-
-    const currentDateTime = new Date() 
 
     const writeObject = {
       channelId: channelId,
       dailyUpdateTime: {
-        UCTHour: currentDateTime.getUTCHours(),
-        UCTMinute: currentDateTime.getUTCMinutes()
+        UCTHour: utcHour,
+        UCTMinute: utcMinute
       }
     }
 
-    let doc = await GuildModel.findOneAndUpdate(filter, writeObject, {
-      new: true,
-      upsert: true
-    });
+    let dbResult = await GuildModel.findOneAndUpdate(
+      filter,
+      { $setOnInsert: writeObject },
+      { upsert: true }
+    );
+    
+    // returns null if channel was not previously registered
+    // returns the document if the channel is already registered
+    return dbResult;
 
-    return doc;
   } catch (error) {
     console.error(error);
     return;
