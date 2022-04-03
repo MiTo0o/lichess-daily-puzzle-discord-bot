@@ -7,7 +7,8 @@
     "build": "tsc",
     "start": "node -r dotenv/config ./prod/index.js",
     "watch-node": "nodemon -r dotenv/config ./prod/index.js",
-    "watch-ts": "tsc -w"
+    "watch-ts": "tsc -w",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,9 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
     "typescript": "^4.6.3"
   }
 }

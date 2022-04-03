@@ -6,7 +6,7 @@ export const setChannelData = async (
   utcMinute: number
 ): Promise<GuildInterface | undefined | null> => {
   try {
-    const filter = { channelId: channelId }
+    const filter = { channelId: channelId };
 
     const writeObject = {
       channelId: channelId,
@@ -16,7 +16,7 @@ export const setChannelData = async (
       }
     }
 
-    let dbResult = await GuildModel.findOneAndUpdate(
+    const dbResult = await GuildModel.findOneAndUpdate(
       filter,
       { $setOnInsert: writeObject },
       { upsert: true }

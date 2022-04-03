@@ -6,7 +6,7 @@ export const removeChannelData = async (
   try {
     const filter = { channelId: channelId }
 
-    let dbResult = await GuildModel.findOneAndDelete(filter);
+    const dbResult = await GuildModel.findOneAndDelete(filter);
 
     return dbResult;
   } catch (error) {
