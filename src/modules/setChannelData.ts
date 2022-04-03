@@ -1,4 +1,4 @@
-import GuildModel, { GuildInterface } from "../database/models/GuildModel";
+import GuildModel, { GuildInterface } from '../database/models/GuildModel';
 
 export const setChannelData = async (
   channelId: string,
@@ -14,7 +14,7 @@ export const setChannelData = async (
         UCTHour: utcHour,
         UCTMinute: utcMinute
       }
-    }
+    };
 
     const dbResult = await GuildModel.findOneAndUpdate(
       filter,
@@ -30,4 +30,4 @@ export const setChannelData = async (
     console.error(error);
     return;
   }
-}
+};
