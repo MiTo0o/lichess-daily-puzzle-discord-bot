@@ -8,17 +8,30 @@ export const checkAndSendDailyPuzzle = async (BOT: Client) => {
   try {
     const allChannelData = await getAllChannelData();
     const dailyPuzzleEmbed = await getDailyPuzzleEmbed();
+    const currentDateTime = new Date();
+    const currentUTCHour = currentDateTime.getUTCHours();
+    const currentUTCMinute = currentDateTime.getUTCMinutes();
 
+    console.log(`CURRENT TIME: ${currentUTCHour}:${currentUTCMinute}`);
     for (const channelData of allChannelData as GuildInterface[]) {
       const channelID = channelData.channelId;
-      const channel = await BOT.channels.cache.get(channelID);
-      // If the bot was kicked out, channel will return undefined
-      if (!channel) {
-        continue;
-      } else {
-        (channel as TextChannel).send({
-          embeds: [dailyPuzzleEmbed as MessageEmbed],
-        });
+      const channelUTCHour = channelData.dailyUpdateTime.UCTHour;
+      const channelUTCMinute = channelData.dailyUpdateTime.UCTMinute;
+
+      console.log(`CHANNEL TIME: ${channelUTCHour}:${channelUTCMinute}`);
+      if (
+        currentUTCHour === channelUTCHour &&
+        currentUTCMinute === channelUTCMinute
+      ) {
+        const channel = await BOT.channels.cache.get(channelID);
+        // Continue if channel is somehow not valid or inaccessible
+        if (!channel) {
+          continue;
+        } else {
+          (channel as TextChannel).send({
+            embeds: [dailyPuzzleEmbed as MessageEmbed],
+          });
+        }
       }
     }
   } catch (error) {

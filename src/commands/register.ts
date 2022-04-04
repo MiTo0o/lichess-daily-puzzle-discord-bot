@@ -17,10 +17,10 @@ export const register: CommandInterface = {
       await interaction.deferReply();
 
       const currentDateTime = new Date();
-      const currnetUTCHour = currentDateTime.getUTCHours();
-      const currnetUTCMinute = currentDateTime.getUTCMinutes();
+      const currentUTCHour = currentDateTime.getUTCHours();
+      const currentUTCMinute = currentDateTime.getUTCMinutes();
 
-      let description = `The daily puzzle will be posted at **${currnetUTCHour}:${currnetUTCMinute} UTC**
+      let description = `The daily puzzle will be posted at **${currentUTCHour}:${currentUTCMinute} UTC**
       If you want to change this, use the \`/setpuzzletime\` command`;
       let embedColor = "#0099ff";
       let status = "Successfully registerd";
@@ -28,8 +28,8 @@ export const register: CommandInterface = {
       const result = await setChannelData(
         interaction.channelId,
         interaction.guildId as string,
-        currnetUTCHour,
-        currnetUTCMinute
+        currentUTCHour,
+        currentUTCMinute
       );
 
       // If result is not null, it means the server is already registered
