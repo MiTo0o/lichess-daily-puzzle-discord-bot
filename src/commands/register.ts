@@ -27,6 +27,7 @@ export const register: CommandInterface = {
 
       const result = await setChannelData(
         interaction.channelId,
+        interaction.guildId as string,
         currnetUTCHour,
         currnetUTCMinute
       );

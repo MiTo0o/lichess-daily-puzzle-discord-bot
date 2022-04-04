@@ -3,14 +3,16 @@ import { errorHandler } from "../utils/handleError";
 
 export const setChannelData = async (
   channelId: string,
+  guildId: string,
   utcHour: number,
   utcMinute: number
 ): Promise<GuildInterface | undefined | null> => {
   try {
     const filter = { channelId: channelId };
-
+    console.log(guildId);
     const writeObject = {
       channelId: channelId,
+      guildId: guildId,
       dailyUpdateTime: {
         UCTHour: utcHour,
         UCTMinute: utcMinute,

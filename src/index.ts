@@ -3,6 +3,7 @@ import { IntentOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
 import { onInteraction } from "./events/onInteraction";
 import { onReady } from "./events/onReady";
+import { onGuildDelete } from "./events/onGuildDelete";
 import * as Sentry from "@sentry/node";
 
 (async () => {
@@ -21,6 +22,8 @@ import * as Sentry from "@sentry/node";
     "interactionCreate",
     async (interaction) => await onInteraction(interaction)
   );
+
+  BOT.on("guildDelete", async (guild) => await onGuildDelete(guild));
 
   await BOT.login(process.env.BOT_TOKEN);
 })();
