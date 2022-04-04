@@ -9,7 +9,6 @@ export const puzzle: CommandInterface = {
     .setName("puzzle")
     .setDescription("Posts the daily chess puzzle by Lichess on-demand"),
 
-  // this comma separates data and run
   run: async (interaction) => {
     try {
       await interaction.deferReply();

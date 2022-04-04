@@ -8,5 +8,5 @@ export const CommandList: CommandInterface[] = [
   puzzle,
   register,
   unregister,
-  setpuzzletime
+  setpuzzletime,
 ];

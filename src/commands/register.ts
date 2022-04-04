@@ -7,11 +7,8 @@ import { errorHandler } from "../utils/handleError";
 export const register: CommandInterface = {
   data: new SlashCommandBuilder()
     .setName("register")
-    .setDescription(
-      "Sends daily puzzle everyday to this channel (Defaults to registerd time)"
-    ),
+    .setDescription("Register this channel to receive daily chess puzzles"),
 
-  // this comma separates data and run
   run: async (interaction) => {
     try {
       await interaction.deferReply();

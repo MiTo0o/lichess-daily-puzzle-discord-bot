@@ -21,7 +21,6 @@ export const setpuzzletime: CommandInterface = {
         .setRequired(true)
     ),
 
-  // this comma separates data and run
   run: async (interaction) => {
     try {
       await interaction.deferReply();
