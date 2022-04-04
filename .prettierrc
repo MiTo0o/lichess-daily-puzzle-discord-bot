@@ -1,4 +1,6 @@
 {
   "endOfLine": "auto",
-  "singleQuote": true
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "tsxSingleQuote": true
 }

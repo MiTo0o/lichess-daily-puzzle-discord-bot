@@ -1,4 +1,4 @@
-import GuildModel, { GuildInterface } from '../database/models/GuildModel';
+import GuildModel, { GuildInterface } from "../database/models/GuildModel";
 
 export const setChannelData = async (
   channelId: string,
@@ -12,8 +12,8 @@ export const setChannelData = async (
       channelId: channelId,
       dailyUpdateTime: {
         UCTHour: utcHour,
-        UCTMinute: utcMinute
-      }
+        UCTMinute: utcMinute,
+      },
     };
 
     const dbResult = await GuildModel.findOneAndUpdate(
@@ -21,11 +21,10 @@ export const setChannelData = async (
       { $setOnInsert: writeObject },
       { upsert: true }
     );
-    
+
     // returns null if channel was not previously registered
     // returns the document if the channel is already registered
     return dbResult;
-
   } catch (error) {
     console.error(error);
     return;

@@ -6,24 +6,20 @@ export const updateChannelData = async (
   utcMinute: number
 ): Promise<GuildInterface | undefined | null> => {
   try {
-    const filter = { channelId: channelId }
+    const filter = { channelId: channelId };
 
     const writeObject = {
       dailyUpdateTime: {
         UCTHour: utcHour,
-        UCTMinute: utcMinute
-      }
-    }
+        UCTMinute: utcMinute,
+      },
+    };
 
-    const dbResult = await GuildModel.findOneAndUpdate(
-      filter,
-      writeObject,
-    );
-    
+    const dbResult = await GuildModel.findOneAndUpdate(filter, writeObject);
+
     return dbResult;
-
   } catch (error) {
     console.error(error);
     return;
   }
-}
+};

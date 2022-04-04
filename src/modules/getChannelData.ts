@@ -4,7 +4,7 @@ export const getChannelData = async (
   channelId: string
 ): Promise<GuildInterface | undefined | null> => {
   try {
-    const filter = { channelId: channelId }
+    const filter = { channelId: channelId };
     const channelData = await GuildModel.findOne(filter);
 
     return channelData;
@@ -12,4 +12,4 @@ export const getChannelData = async (
     console.error(error);
     return;
   }
-}
+};

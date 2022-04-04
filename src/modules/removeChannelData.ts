@@ -1,4 +1,4 @@
-import GuildModel, { GuildInterface } from '../database/models/GuildModel';
+import GuildModel, { GuildInterface } from "../database/models/GuildModel";
 
 export const removeChannelData = async (
   channelId: string
