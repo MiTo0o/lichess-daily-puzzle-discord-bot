@@ -1,4 +1,5 @@
 import GuildModel, { GuildInterface } from "../database/models/GuildModel";
+import { errorHandler } from "../utils/handleError";
 
 export const getAllChannelData = async (): Promise<
   GuildInterface[] | undefined
@@ -8,7 +9,7 @@ export const getAllChannelData = async (): Promise<
 
     return allChannelData;
   } catch (error) {
-    console.error(error);
+    errorHandler(error as Error);
     return;
   }
 };

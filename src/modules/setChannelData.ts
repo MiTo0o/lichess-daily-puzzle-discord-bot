@@ -1,4 +1,5 @@
 import GuildModel, { GuildInterface } from "../database/models/GuildModel";
+import { errorHandler } from "../utils/handleError";
 
 export const setChannelData = async (
   channelId: string,
@@ -26,7 +27,7 @@ export const setChannelData = async (
     // returns the document if the channel is already registered
     return dbResult;
   } catch (error) {
-    console.error(error);
+    errorHandler(error as Error);
     return;
   }
 };

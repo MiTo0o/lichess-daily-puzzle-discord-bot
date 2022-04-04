@@ -1,4 +1,5 @@
 import GuildModel, { GuildInterface } from "../database/models/GuildModel";
+import { errorHandler } from "../utils/handleError";
 
 export const updateChannelData = async (
   channelId: string,
@@ -19,7 +20,7 @@ export const updateChannelData = async (
 
     return dbResult;
   } catch (error) {
-    console.error(error);
+    errorHandler(error as Error);
     return;
   }
 };
