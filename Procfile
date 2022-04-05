@@ -1,1 +1,1 @@
-worker: node ./prod/index.js
+worker: npm start
