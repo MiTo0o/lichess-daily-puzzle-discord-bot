@@ -9,7 +9,6 @@ export const setChannelData = async (
 ): Promise<GuildInterface | undefined | null> => {
   try {
     const filter = { channelId: channelId };
-    console.log(guildId);
     const writeObject = {
       channelId: channelId,
       guildId: guildId,

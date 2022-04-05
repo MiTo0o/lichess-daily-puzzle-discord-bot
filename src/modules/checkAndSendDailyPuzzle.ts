@@ -12,13 +12,11 @@ export const checkAndSendDailyPuzzle = async (BOT: Client) => {
     const currentUTCHour = currentDateTime.getUTCHours();
     const currentUTCMinute = currentDateTime.getUTCMinutes();
 
-    console.log(`CURRENT TIME: ${currentUTCHour}:${currentUTCMinute}`);
     for (const channelData of allChannelData as GuildInterface[]) {
       const channelID = channelData.channelId;
       const channelUTCHour = channelData.dailyUpdateTime.UCTHour;
       const channelUTCMinute = channelData.dailyUpdateTime.UCTMinute;
 
-      console.log(`CHANNEL TIME: ${channelUTCHour}:${channelUTCMinute}`);
       if (
         currentUTCHour === channelUTCHour &&
         currentUTCMinute === channelUTCMinute

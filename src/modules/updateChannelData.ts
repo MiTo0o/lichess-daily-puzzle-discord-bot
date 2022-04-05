@@ -18,6 +18,7 @@ export const updateChannelData = async (
 
     const dbResult = await GuildModel.findOneAndUpdate(filter, writeObject);
 
+    // This isn't used anywhere at the moment
     return dbResult;
   } catch (error) {
     errorHandler(error as Error);

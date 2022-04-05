@@ -7,8 +7,7 @@ import { errorHandler } from "../utils/handleError";
 export const register: CommandInterface = {
   data: new SlashCommandBuilder()
     .setName("register")
-    .setDescription("Register this channel to receive daily chess puzzles"),
-
+    .setDescription("Receive daily chess puzzles in this channel"),
   run: async (interaction) => {
     try {
       await interaction.deferReply();

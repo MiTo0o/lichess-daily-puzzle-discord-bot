@@ -16,7 +16,11 @@ export const onReady = async (BOT: Client) => {
       { body: commandData }
     );
 
-    // runs every minute, passes BOT into the function
+    BOT.user?.setPresence({
+      activities: [{ name: "/help", type: "LISTENING" }],
+      status: "online",
+    });
+    // runs every minute, passes BOT(client) into the function
     setInterval(checkAndSendDailyPuzzle, 60000, BOT);
 
     console.log("Discord ready!");

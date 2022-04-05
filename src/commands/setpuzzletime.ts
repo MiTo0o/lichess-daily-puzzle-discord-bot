@@ -74,13 +74,11 @@ export const setpuzzletime: CommandInterface = {
           return;
         }
 
-        const result2 = await updateChannelData(
+        await updateChannelData(
           interaction.channelId,
           hour as number,
           minute as number
         );
-
-        console.log(result2);
       }
 
       const replyEmbed = new MessageEmbed()
