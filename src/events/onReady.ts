@@ -1,9 +1,13 @@
+import dotenv from "dotenv";
 import { REST } from "@discordjs/rest";
 import { Client } from "discord.js";
 import { CommandList } from "../commands/_CommandList";
 import { Routes } from "discord-api-types/v10";
 import { checkAndSendDailyPuzzle } from "../modules/checkAndSendDailyPuzzle";
 import { errorHandler } from "../utils/handleError";
+
+dotenv.config();
+
 export const onReady = async (BOT: Client) => {
   try {
     const rest = new REST({ version: "10" }).setToken(

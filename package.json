@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "postinstall": "tsc",
-    "start": "node -r dotenv/config ./prod/index.js",
-    "watch-node": "nodemon -r dotenv/config ./prod/index.js",
+    "start": "node ./prod/index.js",
+    "watch-node": "nodemon ./prod/index.js",
     "watch-ts": "tsc -w",
     "lint": "eslint ./src"
   },

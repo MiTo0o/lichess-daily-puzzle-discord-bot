@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import { Client } from "discord.js";
 import { IntentOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
@@ -5,6 +6,8 @@ import { onInteraction } from "./events/onInteraction";
 import { onReady } from "./events/onReady";
 import { onGuildDelete } from "./events/onGuildDelete";
 import * as Sentry from "@sentry/node";
+
+dotenv.config();
 
 (async () => {
   Sentry.init({
