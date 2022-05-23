@@ -1,10 +1,17 @@
 # lichess-daily-puzzle-discord-bot
 
 A discord bot that posts a daily chess puzzle from lichess
+## Stats
+Used in `7` different discord servers
 
 ## Usage
 * Click [HERE](https://discord.com/oauth2/authorize?client_id=959385106991157278&permissions=18432&scope=applications.commands%20bot) to invite the bot to your server
 
+## Available Commands  
+`/puzzle` Posts the daily chess puzzle by Lichess on-demand  
+`/register` Receive daily chess puzzles in this channel  
+`/setpuzzletime` Configures the time of day the daily puzzle should be posted (in UTC)  
+`/unregister` Stop receiving daily chess puzzles in this channel  
 
 ## Tech stack: 
 
