@@ -2,12 +2,8 @@
 
 A discord bot that posts a daily chess puzzle from lichess
 
-## Update
-The bot is currently down, the free hosting service I used shut down their free tier. If enough people want it back, I will find another way to host it.
-[source](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq)
-
 ## Stats
-Used in `7` different discord servers
+Posting daily chess puzzles to 1020 users
 
 ## Usage
 * Click [HERE](https://discord.com/oauth2/authorize?client_id=959385106991157278&permissions=18432&scope=applications.commands%20bot) to invite the bot to your server
