@@ -4,6 +4,7 @@ import { Client } from "discord.js";
 import { CommandList } from "../commands/_CommandList";
 import { Routes } from "discord-api-types/v10";
 import { checkAndSendDailyPuzzle } from "../modules/checkAndSendDailyPuzzle";
+import { setMemberCount } from "../modules/setMemberCount";
 import { errorHandler } from "../utils/handleError";
 
 dotenv.config();
@@ -20,10 +21,10 @@ export const onReady = async (BOT: Client) => {
       { body: commandData }
     );
 
-    BOT.user?.setPresence({
-      activities: [{ name: "/help", type: "LISTENING" }],
-      status: "online",
-    });
+    
+    setMemberCount(BOT);
+    // runs every hour, passes BOT(client) into the function
+    setInterval(setMemberCount, 6000000, BOT);
     // runs every minute, passes BOT(client) into the function
     setInterval(checkAndSendDailyPuzzle, 60000, BOT);
 

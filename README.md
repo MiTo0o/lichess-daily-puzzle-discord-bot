@@ -12,4 +12,3 @@ A discord bot that posts a daily chess puzzle from lichess
 * Hosted using [heroku](https://www.heroku.com/)
 * Storage with [MongoDB Atlas](https://www.mongodb.com/atlas)
 * Error logging with [sentry](https://sentry.io/organizations/derzan/issues/?project=6307741)
-
