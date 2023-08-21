@@ -3,7 +3,7 @@
 A discord bot that posts a daily chess puzzle from lichess
 
 ## Stats
-Posting daily chess puzzles to 1060 users and 15 channels
+Posting daily chess puzzles to 3500+ users and 15+ channels
 
 ## Usage
 * Click [HERE](https://discord.com/oauth2/authorize?client_id=959385106991157278&permissions=18432&scope=applications.commands%20bot) to invite the bot to your server
